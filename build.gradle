@@ -1,0 +1,55 @@
+/*język groovy*/
+/*apply plugin: 'java' */
+plugins {
+    id 'java'
+//    id 'pmd'
+}
+
+group = 'w6.exc'
+version = '1.0.0'
+sourceCompatibility = '18'
+
+repositories {
+    mavenCentral()
+/*
+    maven {
+        url 'https://adres.adres.pl'
+   }
+  */
+}
+
+dependencies {
+//    lombok potrzebny jest tylko na czas kompilacji, a w mavenie trzeba dodać scope provided oraz
+//    annotationProcessorPaths
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    testCompileOnly 'org.projectlombok:lombok:1.18.24'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+}
+//dependencies {
+//    implementation group: 'org.jsoup', name: 'jsoup', version: '1.15.3'
+/*    implementation 'org.jsoup:jsoup:1.15.3'    */
+/*    runtimeOnly 'org.jsoup:jsoup:1.15.3'   określenie kiedy ma być używana biblioteka */
+/*    compileOnly 'org.jsoup:jsoup:1.15.3'    */
+/*    implementationOnly 'org.jsoup:jsoup:1.15.3'    */
+/*    testRuntimeOnly 'org.jsoup:jsoup:1.15.3'    */
+/*    testCompileOnly 'org.jsoup:jsoup:1.15.3'    */
+/*    testImplementationOnly 'org.jsoup:jsoup:1.15.3'    */
+//}
+
+//jar {
+//    /*    jar buduje się w build.libs   */
+//    manifest {
+//        attributes 'Main-Class': 'w6.exc.code.Main'
+//    }
+//    /*   poniżej klauzula buduje fat jar - jar z dependencjami   */
+//    from {
+//        configurations.runtimeClasspath.collect {
+//            it.isDirectory() ? it : zipTree(it)
+//        }
+//    }
+//}
+
+//pmd {
+//    consoleOutput = true
+//}
