@@ -67,3 +67,126 @@ public class Cat {
                 System.out.println("functionexecute");
         }
 }
+        
+/*
+  Exc1      Jak powinna wyglądać klasa analogiczna do przedstawionej, tylko bez wykorzystania Lomboka? Napisz taki kod ręcznie, bez wykorzystania pluginu do "delombokingu".
+  
+public class SneakyThrowsExample {
+        @SneakyThrows
+        public static void fileSize(Path path) {
+                System.out.println(Files.size(path));
+        }
+        }
+        -----------------
+        public class SneakyThrowsExample {
+                public static void fileSize(Path path) {
+                        try {
+                                         System.out.println(Files.size(path));
+                      } catch (IOException e) {
+                                        throw new RuntimeException(e);
+                         }
+                   }
+                }
+-------------------------
+   Exc 2  Jak powinna wyglądać klasa analogiczna do przedstawionej, tylko bez wykorzystania
+Lomboka? Napisz taki kod ręcznie, bez wykorzystania pluginu do "delombokingu".
+        
+        @RequiredArgsConstructor
+        public class Dog {
+                                private final String name;
+                                private String surname;
+                }
+
+------------------
+        public class Dog {
+                private final String name;
+                private String surname;
+                public Dog(String name) {
+                        this.name = name;
+                        }
+}
+--------------------------
+Exc 3 Jak powinna wyglądać klasa analogiczna do przedstawionej, tylko bez wykorzystania
+Lomboka? Napisz taki kod ręcznie, bez wykorzystania pluginu do "delombokingu". Jeżeli
+implementacja jakiejś metody może być wygenerowana przez Intellij to możesz to wykorzystać.
+
+@Data
+public class Employee {
+        private String name;
+        private String surname;
+        }
+-----------------
+public class Employee {
+private String name;
+private String surname;
+public Employee() {
+}
+public String getName() {
+return this.name;
+}
+public String getSurname() {
+return this.surname;
+}
+public void setName(String name) {
+this.name = name;
+}
+public void setSurname(String surname) {
+this.surname = surname;
+}
+@Override
+public boolean equals(Object o) {
+if (this == o) return true;
+if (o == null || getClass() != o.getClass()) return false;
+Employee employee = (Employee) o;
+return Objects.equals(name, employee.name) && Objects.equals(surname, employee.surname);
+}
+@Override
+public int hashCode() {
+return Objects.hash(name, surname);
+}
+@Override
+public String toString() {
+return "Employee(name=" + this.getName() + ", surname=" + this.getSurname() + ")";
+}
+}
+-------------------------
+Exc 4. Jak powinna wyglądać klasa analogiczna do przedstawionej, tylko bez wykorzystania
+Lomboka? Napisz taki kod ręcznie, bez wykorzystania pluginu do "delombokingu". Jeżeli
+implementacja jakiejś metody może być wygenerowana przez Intellij to możesz to wykorzystać.
+
+@Value
+public class Employee {
+        String name;
+        String surname;
+        }
+-------------
+public final class Employee {
+private final String name;
+private final String surname;
+public Employee(String name, String surname) {
+this.name = name;
+this.surname = surname;
+}
+public String getName() {
+return this.name;
+}
+public String getSurname() {
+return this.surname;
+}
+@Override
+public boolean equals(Object o) {
+if (this == o) return true;
+if (o == null || getClass() != o.getClass()) return false;
+Employee employee = (Employee) o;
+return Objects.equals(name, employee.name) && Objects.equals(surname, employee.surname);
+}
+@Override
+public int hashCode() {
+return Objects.hash(name, surname);
+}
+@Override
+public String toString() {
+return "Employee(name=" + this.getName() + ", surname=" + this.getSurname() + ")";
+}
+}
+*/
